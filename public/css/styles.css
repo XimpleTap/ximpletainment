@@ -1,0 +1,42 @@
+html{
+	position: relative;
+    min-height: 100%;
+    margin: 0;
+}
+body{
+	background-color: #e7e7f0;
+	font-family: "Segoe UI",Arial,sans-serif;
+	margin-bottom: 60px;
+	overflow-x: hidden;
+}
+.navbar-custom{
+	background-color: #295f77 !important;
+	border-color: #295f77 !important;
+	font-family: 'NavbarFonts', Fallback, sans-serif;
+}
+.movie-dropdown-menu, .music-dropdown-menu{
+	background-color: #295f77 !important;
+	border-color: #295f77 !important;
+}
+.navbar-custom a{
+	color: white !important;
+}
+.navbar-nav>.open>a{
+	background-color: #295f77 !important;
+	border-color: #295f77 !important;
+}
+
+@font-face{
+	font-family : 'NavbarFonts';
+	src : url('../fonts/roboto/Roboto-Light.woff');
+}
+
+#featured-movie-poster{	
+	width: 100% !important;
+}
+
+.most-played-list, .most-watched-list{
+	margin-bottom: 5px;
+}
+
+
