@@ -14,7 +14,7 @@
         <link href="{{ asset('css/player-style.css') }}" type="text/css" rel="stylesheet">
     </head>
 <body>
-
+    
     <nav class="navbar-custom navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -24,7 +24,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Ximpletainment</a>
+          <a class="navbar-brand" href="{{ url('/') }}">Ximpletainment</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav navbar-right">
@@ -32,18 +32,29 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="">Music
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu music-dropdown-menu">
-                  <li><a href="{{ url('/musicplayer') }}">Genre 1</a></li>
-                  <li><a href="{{ url('/musicplayer') }}">Genre 1</a></li>
-                  <li><a href="{{ url('/musicplayer') }}">Genre 1</a></li>
+                @if(!empty($audioGenres))
+                  @foreach($audioGenres as $audio_genre)
+                    <li><a href="{{ URL::to('music/'.$audio_genre->genre_name) }}">{{ $audio_genre->genre_name }}</a></li>
+                  @endforeach
+                  @if(!empty(Session::get('my_playlist.title')))
+                    <li><a href="{{ url('musicplaylist') }}">{{ Session::get('my_playlist.title') }}</a></li>
+                  @endif
+                @else
+                    <li><a href="#">Nothing on music.</a></li>
+                @endif
                 </ul>
             </li>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Movies
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">Movies
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu movie-dropdown-menu">
-                  <li><a href="#">Genre 1</a></li>
-                  <li><a href="#">Genre 1</a></li>
-                  <li><a href="#">Genre 1</a></li>
+                  @if(!empty($videoCategories))
+                    @foreach($videoCategories as $video_category)
+                      <li><a href="#">{{ $video_category->category_name }}</a></li>
+                    @endforeach
+                  @else
+                    <li><a href="#">Nothing on movies.</a></li>
+                  @endif
                 </ul>
             </li>
             <li><a href="#">Settings</a></li>
@@ -55,10 +66,8 @@
       </div>
     </nav>   
     <!-- /#wrapper -->
-    
-   
+  
     @yield('content')
-
     <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.jplayer.js') }}"></script>

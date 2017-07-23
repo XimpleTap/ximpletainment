@@ -12,6 +12,7 @@
 
 (function($) {
     $.fn.ttwMusicPlayer = function(playlist, userOptions, adDetails) {
+
         var $self = this, defaultOptions, options, cssSelector, appMgr, playlistMgr, interfaceMgr, ratingsMgr, playlist,
                 layout, ratings, myPlaylist, current;
 
@@ -78,10 +79,13 @@
 
             var playing = false, markup, $myJplayer = {},$tracks,showHeight = 0,remainingHeight = 0,$tracksWrapper, $more;
 
+
+            var addToPlaylistSpan = userOptions.isPlaylist == true ? "":"<span class='fa fa-plus add-to-playlist'></span>";
             markup = {
                 listItem:'<li class="track">' +
                             '<span class="title"></span>' +
                             '<span class="pull-right duration"></span>' +
+                            addToPlaylistSpan+
                         '</li>',
             };
 
@@ -262,6 +266,8 @@
                 $tracks.find('.title').click(function() {
                     playlistAdvance($(this).parents('li').data('index'));
                 });
+
+               
             }
 
             function showMore() {
@@ -385,7 +391,7 @@
                         '           <span class="img"></span>' +
                         '           <span class="highlight"></span>' +
                         '        </div>' +
-                        '<div class="col-xs-12 col-md-8 col-sm-12 col-lg-9">'+
+                        '<div class="col-xs-12 col-md-9 col-sm-9 col-lg-8">'+
                         '            <p class="title"></p>' +
                         '            <p class="artist-outer">By <span class="artist"></span></p>' +
                         '        <div class="player-controls">' +
@@ -420,19 +426,19 @@
                         '        </div>' +
                         '        </div>' +
                         '</div>' +
-                        '<div class="ads-panel">' +
+                        '<div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 ads-panel">' +
                         '<img class="img-responsive" src="' + adDetails['ad_file'] + '">' +
-                            '</div>' +
-                            '</div>' +
-                            '<div class="col-xs-12 col-md-12 col-sm-12 col-lg-5">' +
-                            '    <div class="tracklist">' +
-                            '        <ol class="tracks"> </ol>' +
-                            '        <div class="more">View More...</div>' +
-                            '    </div>' +
-                            '    <div class="jPlayer-container"></div>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>';
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-xs-12 col-md-12 col-sm-12 col-lg-5">' +
+                        '    <div class="tracklist">' +
+                        '        <ol class="tracks"> </ol>' +
+                        '        <div class="more">View More...</div>' +
+                        '    </div>' +
+                        '    <div class="jPlayer-container"></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
 
                 $interface = $(markup).css({display:'none', opacity:0}).appendTo($self).slideDown('slow', function() {
                     $interface.animate({opacity:1});
@@ -457,7 +463,7 @@
                 $albumCover.animate({opacity:0}, 'fast', function() {
                     if (!isUndefined(myPlaylist[current].cover)) {
                         var now = current;
-                        $('<img src="' + myPlaylist[current].cover + '" alt="album cover" />', this).imagesLoaded(function(){
+                        $('<img class="img-responsive" src="' + myPlaylist[current].cover + '" alt="album cover" />', this).imagesLoaded(function(){
                             if(now == current)
                                 $albumCover.html($(this)).animate({opacity:1})
                         });
