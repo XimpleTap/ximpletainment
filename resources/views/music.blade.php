@@ -70,7 +70,7 @@ $(document).ready(function(){
 			for(musicCount=0; musicCount<data.length; musicCount++){
 
 				musicPlaylist.push({
-					mp3: "/ximpletainment_2/public/audio/"+genre+"/"+data[musicCount].filename,
+					mp3: "/ximpletainment/public/audio/"+genre+"/"+data[musicCount].filename,
 			        oga:"",
 			        title: data[musicCount].music_title,
 			        artist: data[musicCount].music_artist,

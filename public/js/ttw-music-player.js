@@ -80,7 +80,7 @@
             var playing = false, markup, $myJplayer = {},$tracks,showHeight = 0,remainingHeight = 0,$tracksWrapper, $more;
 
 
-            var addToPlaylistSpan = userOptions.isPlaylist == true ? "":"<span class='fa fa-plus add-to-playlist'></span>";
+            var addToPlaylistSpan = userOptions.isPlaylist == true ? "":"<span class='fa fa-plus-circle add-to-playlist'></span>";
             markup = {
                 listItem:'<li class="track">' +
                             '<span class="title"></span>' +
@@ -391,7 +391,7 @@
                         '           <span class="img"></span>' +
                         '           <span class="highlight"></span>' +
                         '        </div>' +
-                        '<div class="col-xs-12 col-md-9 col-sm-9 col-lg-8">'+
+                        '<div class="col-xs-8 col-md-9 col-sm-9 col-lg-8">'+
                         '            <p class="title"></p>' +
                         '            <p class="artist-outer">By <span class="artist"></span></p>' +
                         '        <div class="player-controls">' +
@@ -427,7 +427,7 @@
                         '        </div>' +
                         '</div>' +
                         '<div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 ads-panel">' +
-                        '<img class="img-responsive" src="' + adDetails['ad_file'] + '">' +
+                        '<img class="img-responsive img-rounded" src="' + adDetails['ad_file'] + '">' +
                         '</div>' +
                         '</div>' +
                         '<div class="col-xs-12 col-md-12 col-sm-12 col-lg-5">' +

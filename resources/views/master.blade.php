@@ -12,6 +12,7 @@
         <link href="{{ asset('css/font-awesome.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/player-style.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('css/video-player.css') }}" type="text/css" rel="stylesheet">
     </head>
 <body>
     
@@ -50,7 +51,7 @@
                 <ul class="dropdown-menu movie-dropdown-menu">
                   @if(!empty($videoCategories))
                     @foreach($videoCategories as $video_category)
-                      <li><a href="#">{{ $video_category->category_name }}</a></li>
+                      <li><a href="{{ URL::to('video/'.$video_category->category_name) }}">{{ $video_category->category_name }}</a></li>
                     @endforeach
                   @else
                     <li><a href="#">Nothing on movies.</a></li>

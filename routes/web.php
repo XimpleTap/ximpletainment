@@ -18,5 +18,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/addtoplaylist', array('uses'=>'MusicController@addMusicToPlaylist'));
 	Route::get('/createplaylist',array('uses'=>'MusicController@createPlaylist'));
 	Route::get('/musicplaylist',array('uses'=>'MusicController@indexPlaylist'));
+
+
+	Route::get('/video/{category?}',array('as'=>'video','uses'=>'VideoController@index'))->where('page', '[1-9]+[0-9]*');
+	Route::get('/watchvideo/{category?}/{filename?}',array('as'=>'watchvideo','uses'=>'VideoController@watchVideo'));
+
+
 });
 

@@ -36,7 +36,15 @@ body{
 }
 
 .most-played-list, .most-watched-list{
-	margin-bottom: 5px;
+	margin-bottom: 15px;
+}
+
+.movie-title{
+	width: 100%;
+	font-size: 1.2em;
+	white-space: normal;
+	font-weight: 500;
+	word-wrap: break-word;
 }
 
 

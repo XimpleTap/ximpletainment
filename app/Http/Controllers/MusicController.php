@@ -68,6 +68,7 @@ class MusicController extends Controller{
 		    $remotefilename = public_path('audio/'.$genre.'/'.basename($file));
 			$getID3 = new \getID3;
 			$ThisFileInfo = $getID3->analyze($remotefilename);
+			
 
 			$picture = @$ThisFileInfo['id3v2']['APIC'][0]['data'];
 	        //$picture = @$ThisFileInfo['comments']['picture'][0]['data'];
